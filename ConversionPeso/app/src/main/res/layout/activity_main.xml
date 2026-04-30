@@ -34,7 +34,7 @@
                 android:text="ConversionPeso"
                 android:textSize="26sp"
                 android:textStyle="normal"
-                android:textColor="#8A92A6"
+                android:textColor="@color/white"
                 android:gravity="center"
                 android:layout_marginBottom="8dp" />
 
@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:text="Valor"
                 android:textSize="13sp"
-                android:textColor="#666666"
+                android:textColor="@color/white"
                 android:layout_marginBottom="8dp" />
 
             <EditText
@@ -53,6 +53,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:hint="0.00"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"
                 android:inputType="numberDecimal"
                 android:textSize="16sp"
                 android:padding="12dp"
@@ -66,7 +68,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:text="Convertir de"
-                android:textColor="#666666"
+                android:textColor="@color/white"
                 android:textSize="13sp" />
 
             <Spinner
@@ -82,7 +84,7 @@
                 android:layout_height="wrap_content"
                 android:text="Convertir a"
                 android:textSize="13sp"
-                android:textColor="#666666"
+                android:textColor="@color/white"
                 android:layout_marginBottom="8dp" />
 
             <Spinner
@@ -97,7 +99,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginBottom="36dp"
-                android:background="@drawable/botonconvertir"
+                android:textColor="@color/white"
                 android:text="Convertir"
                 android:textAllCaps="false"
                 android:textSize="15sp"
@@ -112,7 +114,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:text="Resultado"
-                android:textColor="#999999"
+                android:textColor="@color/white"
                 android:textSize="12sp" />
 
             <TextView
@@ -122,7 +124,7 @@
                 android:text="—"
                 android:textSize="34sp"
                 android:textStyle="bold"
-                android:textColor="#222222"
+                android:textColor="@color/white"
                 android:layout_marginBottom="48dp" />
 
             <!-- Footer -->
@@ -132,8 +134,8 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="Gloria Moreno · Jonathan Gómez · Juan García · Miguel Caballero"
-                android:textColor="#BBBBBB"
-                android:textSize="11sp" />
+                android:textColor="@color/white"
+                android:textSize="15sp" />
 
         </LinearLayout>
     </ScrollView>
