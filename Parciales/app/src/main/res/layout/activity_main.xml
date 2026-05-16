@@ -9,6 +9,7 @@
     tools:context=".MainActivity">
 
     <LinearLayout
+        android:id="@+id/layoutPrincipal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -16,6 +17,7 @@
 
         <!-- Título -->
         <TextView
+            android:id="@+id/tvTitulo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -27,6 +29,7 @@
 
         <!-- Card ORIGEN -->
         <androidx.cardview.widget.CardView
+            android:id="@+id/CardviewOrigen"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="12dp"
@@ -34,17 +37,18 @@
             android:layout_marginBottom="8dp">
 
             <LinearLayout
+                android:id="@+id/LinearL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="16dp">
 
                 <TextView
+                    android:id="@+id/Monedat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Moneda origen"
                     android:textSize="12sp"
-                    android:textColor="#888888"
                     android:layout_marginBottom="8dp"/>
 
                 <Spinner
@@ -79,6 +83,7 @@
 
         <!-- Card DESTINO -->
         <androidx.cardview.widget.CardView
+            android:id="@+id/CardviewDestino"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="12dp"
@@ -86,12 +91,14 @@
             android:layout_marginBottom="16dp">
 
             <LinearLayout
+                android:id="@+id/LinearLDestino"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="16dp">
 
                 <TextView
+                    android:id="@+id/tvMonedaDestino"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Moneda destino"
@@ -121,6 +128,7 @@
 
         <!-- Botones -->
         <LinearLayout
+            android:id="@+id/layoutBotones"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -149,6 +157,7 @@
 
         <!-- Switch dark mode -->
         <LinearLayout
+            android:id="@+id/layoutSwitch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -156,6 +165,7 @@
             android:layout_marginBottom="16dp">
 
             <TextView
+                android:id="@+id/tvModoOscuro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Modo oscuro"
@@ -172,6 +182,7 @@
 
         <!-- Historial -->
         <TextView
+            android:id="@+id/tvHistorial"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Historial"
