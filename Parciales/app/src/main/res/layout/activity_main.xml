@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/pantallaPrincipal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F5F5F5"
+    android:fillViewport="true"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -67,6 +68,39 @@
                     android:gravity="end|center_vertical"
                     android:padding="12dp"/>
 
+                <!-- SeekBar para precisión decimal -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Precisión decimal"
+                        android:textSize="11sp"
+                        android:textColor="#888888" />
+
+                    <SeekBar
+                        android:id="@+id/seekBarPrecision"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:max="4"
+                        android:progress="2"
+                        android:layout_marginTop="4dp" />
+
+                    <TextView
+                        android:id="@+id/tvPrecisionValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2 decimales"
+                        android:textSize="10sp"
+                        android:textColor="#6C63FF"
+                        android:layout_marginTop="4dp" />
+
+                </LinearLayout>
+
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -126,6 +160,15 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
+        <!-- ProgressBar -->
+        <ProgressBar
+            android:id="@+id/progressBarConversion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:visibility="gone"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal" />
+
         <!-- Botones -->
         <LinearLayout
             android:id="@+id/layoutBotones"
@@ -152,7 +195,6 @@
                 android:text="Convertir"
                 android:backgroundTint="#6C63FF"
                 android:textColor="#FFFFFF"/>
-
         </LinearLayout>
 
         <!-- Switch dark mode -->
@@ -177,7 +219,6 @@
                 android:id="@+id/switchModoOscuro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
-
         </LinearLayout>
 
         <!-- Historial -->
@@ -194,9 +235,10 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/listaHistorial"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:nestedScrollingEnabled="false"
+            android:layout_height="260dp"
+            android:nestedScrollingEnabled="true"
             tools:itemCount="3" />
 
     </LinearLayout>
-</ScrollView>
+
+</androidx.core.widget.NestedScrollView>
