@@ -190,6 +190,6 @@ class MainActivity : AppCompatActivity() {
     TODO: faltan ImageView REQUERIDO *Listo
     TODO: SeekBar Slider REQUERIDO
     TODO: Video externo( youtube)
-    TODO: SplashScreen
+    TODO: SplashScreen *Listo
     TODO: Le falta PIFIA *Listo/2
  */
