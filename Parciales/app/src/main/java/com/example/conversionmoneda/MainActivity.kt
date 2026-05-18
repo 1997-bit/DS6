@@ -47,8 +47,19 @@ class MainActivity : AppCompatActivity() {
             }
             val monedaOrigen = spinnerOrigen.selectedItem.toString()
             val monedaDestino = spinnerDestino.selectedItem.toString()
+            if (monedaOrigen == monedaDestino) {
+                etiquetaResultado.text = "⚠ Seleccione monedas diferentes"
+                etiquetaResultado.setTextColor(
+                    android.graphics.Color.parseColor("#FF0000")
+                )
+
+                return@setOnClickListener
+            }
             val resultado = monto / tasasCambio[monedaOrigen]!! * tasasCambio[monedaDestino]!!
             etiquetaResultado.text = "%.2f %s".format(resultado, monedaDestino)
+            etiquetaResultado.setTextColor(
+                android.graphics.Color.parseColor("#06D6A0")
+            )
             sonidoConvertir.start()
         }
 
