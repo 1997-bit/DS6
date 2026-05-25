@@ -14,7 +14,7 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+    1
         // Aplicar animación de entrada al logo
         val slideIn = AnimationUtils.loadAnimation(this, R.anim.slide_in_logo)
         binding.ivLogoSplash.startAnimation(slideIn)
@@ -28,6 +28,6 @@ class SplashActivity : AppCompatActivity() {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
-        }, 3000)
+        }, 2000)
     }
 }

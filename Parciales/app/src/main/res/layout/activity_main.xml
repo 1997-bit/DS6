@@ -238,7 +238,30 @@
             android:layout_height="260dp"
             android:nestedScrollingEnabled="true"
             tools:itemCount="3" />
+        <!-- VIDEO -->
+        <VideoView
+            android:id="@+id/videoLocal"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:layout_marginTop="16dp"/>
 
+        <!-- CRÉDITOS -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Integrantes"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Gloria Moreno   8-924-2038&#10;Jonathan Gómez   8-1002-785&#10;Juan García   8-1016-228&#10;Miguel Caballero   8-957-2172"
+            android:textSize="13sp"
+            android:textColor="#666666"
+            android:layout_marginBottom="40dp"/>
     </LinearLayout>
 
 </androidx.core.widget.NestedScrollView>

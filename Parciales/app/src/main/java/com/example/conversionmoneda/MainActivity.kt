@@ -11,7 +11,9 @@ import com.example.conversionmoneda.databinding.ActivityMainBinding
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
-
+import android.net.Uri
+import android.widget.MediaController
+import android.widget.VideoView
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -102,7 +104,12 @@ class MainActivity : AppCompatActivity() {
 
                 // Realizar conversión (ya calculaste resultado anteriormente o recalcula)
                 val resultado = montoDouble / tasasCambio[monedaOrigen]!! * tasasCambio[monedaDestino]!!
-                val formatoResultado = "%.${precisionDecimal}f %s".format(resultado, monedaDestino)
+
+                val formatter = java.text.NumberFormat.getNumberInstance(java.util.Locale.US)
+                formatter.maximumFractionDigits = precisionDecimal
+                formatter.minimumFractionDigits = precisionDecimal
+
+                val formatoResultado = "${formatter.format(resultado)} $monedaDestino"
                 etiquetaResultado.text = formatoResultado
 
                 // Agregar al historial usando el método del adaptador
@@ -154,6 +161,19 @@ class MainActivity : AppCompatActivity() {
         //MODO CLARO DEFAULT
         aplicarTemaClaro()
         configurarEventos()
+        val videoView = findViewById<VideoView>(R.id.videoLocal)
+
+        val uri = Uri.parse("android.resource://$packageName/${R.raw.video}")
+        videoView.setVideoURI(uri)
+
+        val mediaController = MediaController(this)
+        mediaController.setAnchorView(videoView)
+        videoView.setMediaController(mediaController)
+
+        videoView.setOnPreparedListener { mp ->
+            mp.isLooping = true
+            videoView.start()
+        }
     }
 
     override fun onDestroy() {
