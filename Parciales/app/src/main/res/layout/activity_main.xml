@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/pantallaPrincipal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F5F5F5"
+    android:fillViewport="true"
     tools:context=".MainActivity">
 
     <LinearLayout
+        android:id="@+id/layoutPrincipal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -16,6 +18,7 @@
 
         <!-- Título -->
         <TextView
+            android:id="@+id/tvTitulo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -27,6 +30,7 @@
 
         <!-- Card ORIGEN -->
         <androidx.cardview.widget.CardView
+            android:id="@+id/CardviewOrigen"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="12dp"
@@ -34,17 +38,18 @@
             android:layout_marginBottom="8dp">
 
             <LinearLayout
+                android:id="@+id/LinearL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="16dp">
 
                 <TextView
+                    android:id="@+id/Monedat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Moneda origen"
                     android:textSize="12sp"
-                    android:textColor="#888888"
                     android:layout_marginBottom="8dp"/>
 
                 <Spinner
@@ -63,6 +68,39 @@
                     android:gravity="end|center_vertical"
                     android:padding="12dp"/>
 
+                <!-- SeekBar para precisión decimal -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Precisión decimal"
+                        android:textSize="11sp"
+                        android:textColor="#888888" />
+
+                    <SeekBar
+                        android:id="@+id/seekBarPrecision"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:max="4"
+                        android:progress="2"
+                        android:layout_marginTop="4dp" />
+
+                    <TextView
+                        android:id="@+id/tvPrecisionValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2 decimales"
+                        android:textSize="10sp"
+                        android:textColor="#6C63FF"
+                        android:layout_marginTop="4dp" />
+
+                </LinearLayout>
+
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -79,6 +117,7 @@
 
         <!-- Card DESTINO -->
         <androidx.cardview.widget.CardView
+            android:id="@+id/CardviewDestino"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="12dp"
@@ -86,12 +125,14 @@
             android:layout_marginBottom="16dp">
 
             <LinearLayout
+                android:id="@+id/LinearLDestino"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="16dp">
 
                 <TextView
+                    android:id="@+id/tvMonedaDestino"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Moneda destino"
@@ -119,8 +160,18 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
+        <!-- ProgressBar -->
+        <ProgressBar
+            android:id="@+id/progressBarConversion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:visibility="gone"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal" />
+
         <!-- Botones -->
         <LinearLayout
+            android:id="@+id/layoutBotones"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -144,11 +195,11 @@
                 android:text="Convertir"
                 android:backgroundTint="#6C63FF"
                 android:textColor="#FFFFFF"/>
-
         </LinearLayout>
 
         <!-- Switch dark mode -->
         <LinearLayout
+            android:id="@+id/layoutSwitch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -156,6 +207,7 @@
             android:layout_marginBottom="16dp">
 
             <TextView
+                android:id="@+id/tvModoOscuro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Modo oscuro"
@@ -167,11 +219,11 @@
                 android:id="@+id/switchModoOscuro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
-
         </LinearLayout>
 
         <!-- Historial -->
         <TextView
+            android:id="@+id/tvHistorial"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Historial"
@@ -183,9 +235,33 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/listaHistorial"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:nestedScrollingEnabled="false"
+            android:layout_height="260dp"
+            android:nestedScrollingEnabled="true"
             tools:itemCount="3" />
+        <!-- VIDEO -->
+        <VideoView
+            android:id="@+id/videoLocal"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:layout_marginTop="16dp"/>
 
+        <!-- CRÉDITOS -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Integrantes"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Gloria Moreno   8-924-2038&#10;Jonathan Gómez   8-1002-785&#10;Juan García   8-1016-228&#10;Miguel Caballero   8-957-2172"
+            android:textSize="13sp"
+            android:textColor="#666666"
+            android:layout_marginBottom="40dp"/>
     </LinearLayout>
-</ScrollView>
+
+</androidx.core.widget.NestedScrollView>
