@@ -1,37 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="16dp"
+    android:background="#1A237E">
 
     <TextView
-        android:id="@+id/tvTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Registro de Calificaciones"
-        android:textSize="22sp"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="76dp"
-        tools:layout_editor_absoluteY="22dp" />
+        android:layout_marginTop="16dp"/>
+
+    <ImageView
+
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/bandera_eur"
+        android:layout_marginTop="8dp"/>
 
     <TextView
-        android:id="@+id/tvNombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Estudiante: -"
-        android:textSize="16sp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="68dp" />
+        android:text="Bienvenido"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginTop="4dp"/>
 
-    <TextView
-        android:id="@+id/tvCarrera"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Carrera: -"
-        android:textSize="16sp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="98dp" />
+        android:orientation="vertical"
+        android:background="#FFFFFF"
+        android:padding="12dp"
+        android:layout_marginTop="12dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Estudiante:"
+            android:textColor="#1A237E"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tvNombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No configurado"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Carrera:"
+            android:textColor="#1A237E"
+            android:textStyle="bold"
+            android:layout_marginTop="4dp"/>
+
+        <TextView
+            android:id="@+id/tvCarrera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No configurada"
+            android:textSize="16sp"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnConfigurar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Configurar Estudiante"
+        android:backgroundTint="#1565C0"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/btnRegistrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Registrar Calificaciones"
+        android:backgroundTint="#2E7D32"
+        android:layout_marginTop="8dp"/>
+
+    <Button
+        android:id="@+id/btnHistorial"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ver Historial"
+        android:backgroundTint="#6A1B9A"
+        android:layout_marginTop="8dp"/>
+
+    <Button
+        android:id="@+id/btnSalir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Salir"
+        android:backgroundTint="#C62828"
+        android:layout_marginTop="8dp"/>
+
+    <Switch
+        android:id="@+id/darkmode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Modo oscuro" />
+
+</LinearLayout>
