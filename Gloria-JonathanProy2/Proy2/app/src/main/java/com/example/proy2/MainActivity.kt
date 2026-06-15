@@ -1,25 +1,54 @@
 package com.example.proy2
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var tvNombre: TextView
+    private lateinit var tvCarrera: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_main)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+
+        tvNombre = findViewById(R.id.tvNombre)
+        tvCarrera = findViewById(R.id.tvCarrera)
+
+        val btnConfigurar = findViewById<Button>(R.id.btnConfigurar)
+        val btnRegistrar = findViewById<Button>(R.id.btnRegistrar)
+        val btnHistorial = findViewById<Button>(R.id.btnHistorial)
+        val btnSalir = findViewById<Button>(R.id.btnSalir)
+
+        btnConfigurar.setOnClickListener {
+            startActivity(Intent(this, DatosEstudiantes::class.java))
         }
-                //LEEMOS LOS SHAREDPREFERENCES
+
+        btnRegistrar.setOnClickListener {
+            startActivity(Intent(this, RegistroCalificaciones::class.java))
+        }
+
+        btnHistorial.setOnClickListener {
+            startActivity(Intent(this, HistorialCal::class.java))
+        }
+
+        btnSalir.setOnClickListener {
+            finish()
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+
         val prefs = getSharedPreferences("datos_estudiantes", MODE_PRIVATE)
-        val nombre = prefs.getString("nombre", "No configurado")
-        val carrera = prefs.getString("carrera", "No configurada")
-                //TERMINAMOS SHAREDPREFERENCES
+
+        tvNombre.text =
+            prefs.getString("nombre", "No configurado")
+
+        tvCarrera.text =
+            prefs.getString("carrera", "No configurada")
     }
 }

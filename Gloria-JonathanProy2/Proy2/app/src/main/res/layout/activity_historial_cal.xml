@@ -5,6 +5,7 @@
     android:orientation="vertical"
     android:gravity="center_horizontal"
     android:padding="16dp"
+    android:id="@+id/main"
     android:background="#1A237E">
 
     <!-- Título -->
