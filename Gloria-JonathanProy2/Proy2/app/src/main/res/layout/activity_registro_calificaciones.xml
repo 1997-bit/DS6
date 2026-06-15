@@ -68,6 +68,7 @@
                         android:textStyle="bold"/>
 
                     <EditText
+                        android:maxLength="3"
                         android:id="@+id/etNota1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -90,6 +91,7 @@
                         android:textStyle="bold"/>
 
                     <EditText
+                        android:maxLength="3"
                         android:id="@+id/etNota2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -119,6 +121,7 @@
                         android:textStyle="bold"/>
 
                     <EditText
+                        android:maxLength="3"
                         android:id="@+id/etNota3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -141,6 +144,7 @@
                         android:textStyle="bold"/>
 
                     <EditText
+                        android:maxLength="3"
                         android:id="@+id/etNota4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

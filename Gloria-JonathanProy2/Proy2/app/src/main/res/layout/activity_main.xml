@@ -22,7 +22,7 @@
 
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:src="@drawable/bandera_eur"
+        android:src="@drawable/logoutp"
         android:layout_marginTop="8dp"/>
 
     <TextView
@@ -103,12 +103,5 @@
         android:text="Salir"
         android:backgroundTint="#C62828"
         android:layout_marginTop="8dp"/>
-
-    <Switch
-        android:textColor="@color/white"
-        android:id="@+id/darkmode"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Modo oscuro" />
 
 </LinearLayout>
