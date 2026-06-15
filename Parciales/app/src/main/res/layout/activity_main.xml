@@ -117,7 +117,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
                     android:text="—"
-                    android:textSize="24sp"
+                    android:textSize="16sp"
                     android:textStyle="bold"
                     android:textColor="#06D6A0"
                     android:gravity="end|center_vertical"
@@ -190,6 +190,22 @@
             android:textStyle="bold"
             android:textColor="#333333"
             android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/tvSeekBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tamaño del resultado"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"/>
+
+        <SeekBar
+            android:id="@+id/seekBarTexto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="40"
+            android:progress="18"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/listaHistorial"

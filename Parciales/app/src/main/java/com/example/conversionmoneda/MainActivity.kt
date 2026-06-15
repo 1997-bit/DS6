@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
         val botonConvertir = findViewById<Button>(R.id.botonConvertir)
         val botonLimpiar = findViewById<Button>(R.id.botonLimpiar)
         val botonIntercambiar = findViewById<Button>(R.id.botonIntercambiar)
+        val seekBarTexto = findViewById<SeekBar>(R.id.seekBarTexto)
 
         val tasasCambio = mapOf(
             "USD" to 1.0,
@@ -47,8 +48,19 @@ class MainActivity : AppCompatActivity() {
             }
             val monedaOrigen = spinnerOrigen.selectedItem.toString()
             val monedaDestino = spinnerDestino.selectedItem.toString()
+            if (monedaOrigen == monedaDestino) {
+                etiquetaResultado.text = "⚠ Seleccione monedas diferentes"
+                etiquetaResultado.setTextColor(
+                    android.graphics.Color.parseColor("#FF0000")
+                )
+
+                return@setOnClickListener
+            }
             val resultado = monto / tasasCambio[monedaOrigen]!! * tasasCambio[monedaDestino]!!
             etiquetaResultado.text = "%.2f %s".format(resultado, monedaDestino)
+            etiquetaResultado.setTextColor(
+                android.graphics.Color.parseColor("#06D6A0")
+            )
             sonidoConvertir.start()
         }
 
@@ -65,6 +77,25 @@ class MainActivity : AppCompatActivity() {
             spinnerOrigen.setSelection(spinnerDestino.selectedItemPosition)
             spinnerDestino.setSelection(temporal)
         }
+
+        seekBarTexto.setOnSeekBarChangeListener(object :
+            SeekBar.OnSeekBarChangeListener {
+
+            override fun onProgressChanged(
+                seekBar: SeekBar?,
+                progress: Int,
+                fromUser: Boolean
+            ) {
+
+                val tamaño = if (progress < 12) 12 else progress
+
+                etiquetaResultado.textSize = tamaño.toFloat()
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {}
+
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {}
+        })
 
         //MODO CLARO DEFAULT
         binding.pantallaPrincipal.setBackgroundColor(android.graphics.Color.parseColor("#B0BBF8"))
@@ -188,8 +219,8 @@ class MainActivity : AppCompatActivity() {
     TODO: El historial
     TODO: modo oscuro / claro *Listo
     TODO: faltan ImageView REQUERIDO *Listo
-    TODO: SeekBar Slider REQUERIDO
+    TODO: SeekBar Slider REQUERIDO *Listo
     TODO: Video externo( youtube)
-    TODO: SplashScreen
+    TODO: SplashScreen *Listo
     TODO: Le falta PIFIA *Listo/2
  */
