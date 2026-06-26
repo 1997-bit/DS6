@@ -16,47 +16,6 @@ class HistorialCal : AppCompatActivity() {
         binding = ActivityHistorialCalBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-<<<<<<< HEAD
-        val tvHistorial =
-            findViewById<TextView>(R.id.tvHistorial)
-
-        val tvSinHistorial =
-            findViewById<TextView>(R.id.tvSinHistorial)
-
-        val btnRegresar =
-            findViewById<Button>(
-                    R.id.btnRegresarMenuHistorial
-            )
-
-        try {
-
-            val contenido =
-                openFileInput(
-                    "historial_calificaciones.txt"
-                ).bufferedReader()
-                    .use { it.readText() }
-
-            tvHistorial.text = contenido
-
-        } catch (e: FileNotFoundException) {
-
-            tvSinHistorial.visibility =
-                android.view.View.VISIBLE
-
-            tvHistorial.text = ""
-        }
-
-        btnRegresar.setOnClickListener {
-
-            startActivity(
-                Intent(
-                    this,
-                    MainActivity::class.java
-                )
-            )
-=======
-        consultarHistorial()
->>>>>>> 3cb3a98f3394b3c7190d69808646fe891ef1e587
 
         binding.btnRegresarMenuHistorial.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
