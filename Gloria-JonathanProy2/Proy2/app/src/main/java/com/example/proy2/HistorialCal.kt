@@ -22,7 +22,7 @@ class HistorialCal : AppCompatActivity() {
 
         val btnRegresar =
             findViewById<Button>(
-                R.id.btnRegresarMenuHistorial
+                    R.id.btnRegresarMenuHistorial
             )
 
         try {

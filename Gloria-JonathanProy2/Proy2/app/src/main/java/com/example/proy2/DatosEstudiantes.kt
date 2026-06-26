@@ -14,8 +14,7 @@ class DatosEstudiantes : AppCompatActivity() {
         val etNombre = findViewById<EditText>(R.id.etNombre)
         val etCarrera = findViewById<EditText>(R.id.etCarrera)
         val etGrupo = findViewById<EditText>(R.id.etGrupo)
-        val switchNotificaciones =
-            findViewById<Switch>(R.id.switchNotificaciones)
+        val switchNotificaciones = findViewById<Switch>(R.id.switchNotificaciones)
 
         val btnGuardar =
             findViewById<Button>(R.id.btnGuardar)
