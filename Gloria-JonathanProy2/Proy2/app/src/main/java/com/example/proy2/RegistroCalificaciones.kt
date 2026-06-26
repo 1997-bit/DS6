@@ -58,22 +58,16 @@ class RegistroCalificaciones : AppCompatActivity() {
             val n4 =
                 etNota4.text.toString().toDoubleOrNull()
 
-            //para que no agarre numeros con 0 en la izquierda
-            fun esFormatoValido(texto: String): Boolean {
-                return !(texto.length > 1 && texto.startsWith("0"))
-            }
-
-            //se usa la fun de arriba y limita a escribir numeros hasta 100, no permite numeros mayores a 100.
             if (
                 etAsignatura.text.isEmpty() ||
-                n1 == null || n1 < 0 || n1 > 100 || !esFormatoValido(etNota1.text.toString()) ||
-                n2 == null || n2 < 0 || n2 > 100 || !esFormatoValido(etNota2.text.toString()) ||
-                n3 == null || n3 < 0 || n3 > 100 || !esFormatoValido(etNota3.text.toString()) ||
-                n4 == null || n4 < 0 || n4 > 100 || !esFormatoValido(etNota4.text.toString())
+                n1 == null ||
+                n2 == null ||
+                n3 == null ||
+                n4 == null
             ) {
                 Toast.makeText(
                     this,
-                    "Formato de nota inválido o Campos vacios",
+                    "Complete todos los campos",
                     Toast.LENGTH_SHORT
                 ).show()
                 return@setOnClickListener

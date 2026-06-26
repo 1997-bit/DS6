@@ -1,98 +1,134 @@
 package com.example.proy2
 
+import android.content.ContentValues
 import android.content.Intent
 import android.os.Bundle
-import android.widget.*
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.proy2.databinding.ActivityDatosEstudiantesBinding
 
 class DatosEstudiantes : AppCompatActivity() {
 
+    private lateinit var binding: ActivityDatosEstudiantesBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_datos_estudiantes)
 
+<<<<<<< HEAD
         val etNombre = findViewById<EditText>(R.id.etNombre)
         val etCarrera = findViewById<EditText>(R.id.etCarrera)
         val etGrupo = findViewById<EditText>(R.id.etGrupo)
         val switchNotificaciones = findViewById<Switch>(R.id.switchNotificaciones)
+=======
+        binding = ActivityDatosEstudiantesBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+>>>>>>> 3cb3a98f3394b3c7190d69808646fe891ef1e587
 
-        val btnGuardar =
-            findViewById<Button>(R.id.btnGuardar)
+        cargarDatosExistentes()
 
-        val btnLimpiar =
-            findViewById<Button>(R.id.btnLimpiar)
+        binding.btnGuardar.setOnClickListener {
+            guardarEstudiante()
+        }
 
-        val btnRegresar =
-            findViewById<Button>(R.id.btnRegresar)
+        binding.btnLimpiar.setOnClickListener {
+            limpiarCampos()
+        }
 
-        val prefs =
-            getSharedPreferences(
-                "datos_estudiantes",
-                MODE_PRIVATE
-            )
+        binding.btnRegresar.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }
+    }
 
-        etNombre.setText(
-            prefs.getString("nombre", "")
+    private fun cargarDatosExistentes() {
+
+        val admin = AdministradorBD(this)
+        val db = admin.readableDatabase
+
+        val cursor = db.rawQuery(
+            "SELECT nombre, carrera, grupo, notificaciones FROM Estudiantes LIMIT 1",
+            null
         )
 
-        etCarrera.setText(
-            prefs.getString("carrera", "")
-        )
+        if (cursor.moveToFirst()) {
+            binding.etNombre.setText(cursor.getString(0))
+            binding.etCarrera.setText(cursor.getString(1))
+            binding.etGrupo.setText(cursor.getString(2))
+            binding.switchNotificaciones.isChecked = cursor.getInt(3) == 1
+        }
 
-        etGrupo.setText(
-            prefs.getString("grupo", "")
-        )
+        cursor.close()
+        db.close()
+    }
 
-        switchNotificaciones.isChecked =
-            prefs.getBoolean("notificaciones", false)
+    private fun guardarEstudiante() {
 
-        btnGuardar.setOnClickListener {
+        val nombre = binding.etNombre.text.toString().trim()
+        val carrera = binding.etCarrera.text.toString().trim()
+        val grupo = binding.etGrupo.text.toString().trim()
+        val notificaciones = if (binding.switchNotificaciones.isChecked) 1 else 0
 
-            if (
-                etNombre.text.isEmpty() ||
-                etCarrera.text.isEmpty() ||
-                etGrupo.text.isEmpty()
-            ) {
-                Toast.makeText(
-                    this,
-                    "Complete todos los campos",
-                    Toast.LENGTH_SHORT
-                ).show()
-
-                return@setOnClickListener
-            }
-
-            prefs.edit()
-                .putString("nombre", etNombre.text.toString())
-                .putString("carrera", etCarrera.text.toString())
-                .putString("grupo", etGrupo.text.toString())
-                .putBoolean(
-                    "notificaciones",
-                    switchNotificaciones.isChecked
-                )
-                .apply()
-
+        if (nombre.isEmpty() || carrera.isEmpty() || grupo.isEmpty()) {
             Toast.makeText(
                 this,
-                "Datos guardados",
+                "Complete todos los campos",
+                Toast.LENGTH_SHORT
+            ).show()
+            return
+        }
+
+        val admin = AdministradorBD(this)
+        val db = admin.writableDatabase
+
+        // Verificar si ya existe un estudiante
+        val cursorConteo = db.rawQuery(
+            "SELECT COUNT(*) FROM Estudiantes",
+            null
+        )
+        cursorConteo.moveToFirst()
+        val cantidad = cursorConteo.getInt(0)
+        cursorConteo.close()
+
+        val valores = ContentValues().apply {
+            put("nombre", nombre)
+            put("carrera", carrera)
+            put("grupo", grupo)
+            put("notificaciones", notificaciones)
+        }
+
+        val resultado: Long
+
+        if (cantidad == 0) {
+            // Insertar nuevo estudiante
+            resultado = db.insert("Estudiantes", null, valores)
+        } else {
+            // Actualizar el estudiante existente
+            val filas = db.update("Estudiantes", valores, null, null)
+            resultado = if (filas > 0) 1L else -1L
+        }
+
+        db.close()
+
+        if (resultado != -1L) {
+            Toast.makeText(
+                this,
+                "Estudiante guardado correctamente",
+                Toast.LENGTH_SHORT
+            ).show()
+        } else {
+            Toast.makeText(
+                this,
+                "Error al guardar estudiante",
                 Toast.LENGTH_SHORT
             ).show()
         }
+    }
 
-        btnLimpiar.setOnClickListener {
-            etNombre.setText("")
-            etCarrera.setText("")
-            etGrupo.setText("")
-        }
-
-        btnRegresar.setOnClickListener {
-            startActivity(
-                Intent(
-                    this,
-                    MainActivity::class.java
-                )
-            )
-            finish()
-        }
+    private fun limpiarCampos() {
+        binding.etNombre.setText("")
+        binding.etCarrera.setText("")
+        binding.etGrupo.setText("")
+        binding.switchNotificaciones.isChecked = false
+        binding.etNombre.requestFocus()
     }
 }
