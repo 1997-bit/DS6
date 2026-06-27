@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@drawable/bg_menu_button"
+    android:padding="12dp"
+    android:gravity="center_vertical"
+    android:layout_marginBottom="10dp">
+
+    <!-- INICIALES -->
+    <TextView
+        android:id="@+id/tvIniciales"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:background="@drawable/bg_avatar_cyan"
+        android:gravity="center"
+        android:textColor="#00E5FF"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:text="MG" />
+
+    <!-- INFO -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginStart="12dp">
+
+        <TextView
+            android:id="@+id/tvNombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre Cliente"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvCorreo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="correo@ejemplo.com"
+            android:textColor="#9B6FD0"
+            android:textSize="12sp"
+            android:layout_marginTop="2dp" />
+
+        <TextView
+            android:id="@+id/tvTelefono"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6000-0000"
+            android:textColor="#6B3F9E"
+            android:textSize="11sp"
+            android:layout_marginTop="1dp" />
+
+    </LinearLayout>
+
+    <!-- BOTONES -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:id="@+id/btnEditar"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/bg_icon_cyan"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginEnd="8dp">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_edit"
+                android:contentDescription="Editar"
+                app:tint="#00E5FF" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnEliminar"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/bg_icon_pink"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_delete"
+                android:contentDescription="Eliminar"
+                app:tint="#FF2D8B" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
