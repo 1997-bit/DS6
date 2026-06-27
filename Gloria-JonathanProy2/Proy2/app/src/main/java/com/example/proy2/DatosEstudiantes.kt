@@ -14,15 +14,8 @@ class DatosEstudiantes : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-<<<<<<< HEAD
-        val etNombre = findViewById<EditText>(R.id.etNombre)
-        val etCarrera = findViewById<EditText>(R.id.etCarrera)
-        val etGrupo = findViewById<EditText>(R.id.etGrupo)
-        val switchNotificaciones = findViewById<Switch>(R.id.switchNotificaciones)
-=======
         binding = ActivityDatosEstudiantesBinding.inflate(layoutInflater)
         setContentView(binding.root)
->>>>>>> 3cb3a98f3394b3c7190d69808646fe891ef1e587
 
         cargarDatosExistentes()
 
@@ -79,16 +72,7 @@ class DatosEstudiantes : AppCompatActivity() {
 
         val admin = AdministradorBD(this)
         val db = admin.writableDatabase
-
-        // Verificar si ya existe un estudiante
-        val cursorConteo = db.rawQuery(
-            "SELECT COUNT(*) FROM Estudiantes",
-            null
-        )
-        cursorConteo.moveToFirst()
-        val cantidad = cursorConteo.getInt(0)
-        cursorConteo.close()
-
+        //hacer insert por cada estudiante
         val valores = ContentValues().apply {
             put("nombre", nombre)
             put("carrera", carrera)
@@ -96,16 +80,8 @@ class DatosEstudiantes : AppCompatActivity() {
             put("notificaciones", notificaciones)
         }
 
-        val resultado: Long
+        val resultado = db.insert("Estudiantes", null, valores)
 
-        if (cantidad == 0) {
-            // Insertar nuevo estudiante
-            resultado = db.insert("Estudiantes", null, valores)
-        } else {
-            // Actualizar el estudiante existente
-            val filas = db.update("Estudiantes", valores, null, null)
-            resultado = if (filas > 0) 1L else -1L
-        }
 
         db.close()
 

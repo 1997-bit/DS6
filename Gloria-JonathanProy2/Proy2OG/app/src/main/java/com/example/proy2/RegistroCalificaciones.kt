@@ -1,6 +1,5 @@
 package com.example.proy2
 
-import android.content.ContentValues
 import android.content.Intent
 import android.os.Bundle
 import android.widget.*
@@ -66,19 +65,14 @@ class RegistroCalificaciones : AppCompatActivity() {
                 n3 == null ||
                 n4 == null
             ) {
-                Toast.makeText(this, "Complete todos los campos", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    "Complete todos los campos",
+                    Toast.LENGTH_SHORT
+                ).show()
                 return@setOnClickListener
             }
 
-            if (n1 > 100 || n2 > 100 || n3 > 100 || n4 > 100) {
-                Toast.makeText(this, "Las notas no pueden ser mayores a 100", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-
-            if (n1 < 0 || n2 < 0 || n3 < 0 || n4 < 0) {
-                Toast.makeText(this, "Las notas no pueden ser negativas", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
             val promedio =
                 (n1 + n2 + n3 + n4) / 4
 
@@ -118,28 +112,16 @@ Condición: $condicion
 -----------------------------------
 """.trimIndent()
 
-            val admin = AdministradorBD(this)
-            val db = admin.writableDatabase
-
-                                // Obtener el id del estudiante
-            val cursorEst = db.rawQuery("SELECT id FROM Estudiantes LIMIT 1", null)
-            val estudianteId = if (cursorEst.moveToFirst()) cursorEst.getInt(0) else 1
-            cursorEst.close()
-
-            val valores = ContentValues().apply {
-                put("estudiante_id", estudianteId)
-                put("asignatura", etAsignatura.text.toString())
-                put("nota1", n1)
-                put("nota2", n2)
-                put("nota3", n3)
-                put("nota4", n4)
-                put("promedio", promedio)
-                put("condicion", condicion)
-                put("fecha", java.text.SimpleDateFormat("dd/MM/yyyy HH:mm", java.util.Locale.getDefault()).format(java.util.Date()))
+            openFileOutput(
+                "historial_calificaciones.txt",
+                MODE_APPEND
+            ).use {
+                it.write(
+                    (registro + "\n")
+                        .toByteArray()
+                )
             }
 
-            db.insert("Calificaciones", null, valores)
-            db.close()
             Toast.makeText(
                 this,
                 "Calificación guardada",

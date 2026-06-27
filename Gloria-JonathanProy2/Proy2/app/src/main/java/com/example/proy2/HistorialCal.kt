@@ -16,6 +16,7 @@ class HistorialCal : AppCompatActivity() {
         binding = ActivityHistorialCalBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        consultarHistorial()
 
         binding.btnRegresarMenuHistorial.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
@@ -37,7 +38,6 @@ class HistorialCal : AppCompatActivity() {
             """.trimIndent(),
             null
         )
-
         if (cursor.count == 0) {
             binding.tvSinHistorial.visibility = View.VISIBLE
             binding.tvHistorial.text = ""
