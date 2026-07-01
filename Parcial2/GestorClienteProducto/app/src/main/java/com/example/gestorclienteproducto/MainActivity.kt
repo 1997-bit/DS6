@@ -34,13 +34,14 @@ class MainActivity : AppCompatActivity() {
 
         //pantalla Productos
         btnProductos.setOnClickListener{
+            startActivity(Intent(this, Activity_Productos::class.java))
 
-            //por hacer
         }
         //fin pantalla Productos
 
         //pantalla Ordenes
         btnOrdenes.setOnClickListener{
+            startActivity(Intent(this, Activity_ordenes::class.java))
 
             //por hacer
         }
@@ -48,7 +49,7 @@ class MainActivity : AppCompatActivity() {
 
         //pantalla salir
         btnSalir.setOnClickListener{
-
+            finish()
         }
         //fin pantalla salir
 

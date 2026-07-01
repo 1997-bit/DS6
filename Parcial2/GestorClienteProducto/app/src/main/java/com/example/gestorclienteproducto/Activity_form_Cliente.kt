@@ -10,6 +10,17 @@ class Activity_form_Cliente : AppCompatActivity() {
     private lateinit var db: ActivityBD
     private var clienteId: Int = -1
 
+    private fun validarEmail(email: String): Boolean {
+        val regex = Regex("^[a-zA-Z0-9._%+\\-]+@[a-zA-Z0-9.\\-]+\\.[a-zA-Z]{2,}$")
+        return regex.matches(email)
+    }
+
+    private fun validarTelefono(telefono: String): Boolean {
+        // Formato panameño: XXXX-XXXX obligatorio con guion
+        val regex = Regex("^[0-9]{4}-[0-9]{4}$")
+        return regex.matches(telefono)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_form_cliente)
@@ -39,7 +50,12 @@ class Activity_form_Cliente : AppCompatActivity() {
             val correo = etCorreo.text.toString().trim()
             val telefono = etTelefono.text.toString().trim()
 
-            // Validaciones
+            android.util.Log.d("VALIDACION", "Correo: $correo")
+            android.util.Log.d("VALIDACION", "Email valido: ${validarEmail(correo)}")
+            android.util.Log.d("VALIDACION", "Telefono: $telefono")
+            android.util.Log.d("VALIDACION", "Telefono valido: ${validarTelefono(telefono)}")
+
+
             if (nombre.isEmpty()) {
                 Toast.makeText(this, "El nombre es obligatorio", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
@@ -48,8 +64,16 @@ class Activity_form_Cliente : AppCompatActivity() {
                 Toast.makeText(this, "El correo es obligatorio", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
+            if (!validarEmail(correo)) {
+                Toast.makeText(this, "El correo no tiene un formato válido", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
             if (telefono.isEmpty()) {
                 Toast.makeText(this, "El teléfono es obligatorio", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            if (!validarTelefono(telefono)) {
+                Toast.makeText(this, "El teléfono debe tener formato 6000-0000", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 

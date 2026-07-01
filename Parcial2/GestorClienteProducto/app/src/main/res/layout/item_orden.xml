@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@drawable/bg_menu_button"
+    android:padding="12dp"
+    android:gravity="center_vertical"
+    android:layout_marginBottom="10dp">
+
+    <!-- ÍCONO -->
+    <LinearLayout
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:background="@drawable/bg_icon_pink"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:src="@drawable/ic_receipt"
+            android:contentDescription="Orden"
+            app:tint="#FF2D8B" />
+
+    </LinearLayout>
+
+    <!-- INFO -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginStart="12dp">
+
+        <TextView
+            android:id="@+id/tvNumeroOrden"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Orden #1"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvClienteOrden"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cliente: María González"
+            android:textColor="#9B6FD0"
+            android:textSize="12sp"
+            android:layout_marginTop="2dp" />
+
+        <TextView
+            android:id="@+id/tvFechaOrden"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="21/05/2026"
+            android:textColor="#6B3F9E"
+            android:textSize="11sp"
+            android:layout_marginTop="1dp" />
+
+        <TextView
+            android:id="@+id/tvTotalOrden"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total: $0.00"
+            android:textColor="#FF2D8B"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:layout_marginTop="2dp" />
+
+    </LinearLayout>
+
+    <!-- FLECHA -->
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_arrow_right"
+        android:contentDescription="Ver detalle"
+        app:tint="#9B6FD0" />
+
+</LinearLayout>

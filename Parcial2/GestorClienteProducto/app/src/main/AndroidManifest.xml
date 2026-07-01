@@ -12,10 +12,52 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GestorClienteProducto">
         <activity
+            android:name=".itemProductosOrden"
+            android:exported="false" />
+        <activity
+            android:name=".itemDetalleOrden"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_detalle_orden"
+            android:exported="false" />
+        <activity
+            android:name=".itemOrden"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_ordenes"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_agregar_producto_orden"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_nueva_orden"
+            android:exported="false" />
+        <activity
+            android:name=".itemProducto"
+            android:exported="false" />
+        <activity
+            android:name=".ProductoAdapter"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_FormProductos"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_Productos"
+            android:exported="false" />
+        <activity
+            android:name=".item_producto"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_form_Productos"
+            android:exported="false" />
+        <activity
+            android:name=".productoAdapter"
+            android:exported="false" />
+        <activity
             android:name=".itemCliente"
             android:exported="false" />
         <activity
-            android:name=".activityBD"
+            android:name=".ActivityBD"
             android:exported="false" />
         <activity
             android:name=".Activity_form_Cliente"
