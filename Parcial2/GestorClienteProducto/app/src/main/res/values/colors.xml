@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- Modo oscuro -->
+    <color name="dark_bg_primary">#1A0A2E</color>
+    <color name="dark_bg_secondary">#2A0D4E</color>
+    <color name="dark_bg_border">#4A1F7A</color>
+    <color name="dark_text_primary">#FFFFFF</color>
+    <color name="dark_text_secondary">#BF7FFF</color>
+    <color name="dark_text_muted">#9B6FD0</color>
+    <color name="dark_text_hint">#6B3F9E</color>
+    <color name="dark_accent_pink">#FF2D8B</color>
+    <color name="dark_accent_cyan">#00E5FF</color>
+    <color name="dark_accent_purple">#BF00FF</color>
+
+    <!-- Modo claro -->
+    <color name="light_bg_primary">#F5F0FF</color>
+    <color name="light_bg_secondary">#FFFFFF</color>
+    <color name="light_bg_border">#E0D0FF</color>
+    <color name="light_text_primary">#1A0A2E</color>
+    <color name="light_text_secondary">#6B3F9E</color>
+    <color name="light_text_muted">#9B6FD0</color>
+    <color name="light_text_hint">#B89FD8</color>
+    <color name="light_accent_pink">#CC0055</color>
+    <color name="light_accent_cyan">#00B8CC</color>
+    <color name="light_accent_purple">#9000CC</color>
 </resources>

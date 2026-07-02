@@ -42,24 +42,6 @@
             android:textStyle="bold"
             android:layout_marginStart="12dp" />
 
-        <LinearLayout
-            android:id="@+id/btnNuevaOrden"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:background="@drawable/bg_icon_pink"
-            android:gravity="center"
-            android:clickable="true"
-            android:focusable="true">
-
-            <ImageView
-                android:layout_width="18dp"
-                android:layout_height="18dp"
-                android:src="@drawable/ic_add"
-                android:contentDescription="Nueva orden"
-                app:tint="#FF2D8B" />
-
-        </LinearLayout>
-
     </LinearLayout>
 
     <!-- BÚSQUEDA -->
@@ -97,10 +79,37 @@
     <ListView
         android:id="@+id/listOrdenes"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_marginStart="14dp"
         android:layout_marginEnd="14dp"
         android:divider="@null"
         android:dividerHeight="0dp" />
+
+    <!-- FAB -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/btnNuevaOrden"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:background="@drawable/bg_fab_pink"
+            android:gravity="center"
+            android:layout_gravity="end"
+            android:layout_margin="16dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_add"
+                android:contentDescription="Nueva orden" />
+
+        </LinearLayout>
+
+    </FrameLayout>
 
 </LinearLayout>

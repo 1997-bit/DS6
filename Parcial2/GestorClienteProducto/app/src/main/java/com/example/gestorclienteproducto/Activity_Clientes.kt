@@ -25,12 +25,15 @@ class Activity_Clientes : AppCompatActivity() {
 
         val btnRegresar = findViewById<LinearLayout>(R.id.btnRegresar) //retroceder en la app
         val btnAgregar = findViewById<LinearLayout>(R.id.btnAgregar) //agregar Cliente
-        val listClientes = findViewById<ListView>(R.id.listClientes) //aun sin uso
         val etBuscar = findViewById<EditText>(R.id.etBuscar) //Buscar Cliente
 
-        btnRegresar.setOnClickListener { finish() }
+        btnRegresar.setOnClickListener {
+            SonidoManager.reproducirRegresar()
+            finish()
+        }
 
         btnAgregar.setOnClickListener {
+            SonidoManager.reproducirClick()
             val intent = Intent(this, Activity_form_Cliente::class.java)
             startActivity(intent)
         }
@@ -73,6 +76,7 @@ class Activity_Clientes : AppCompatActivity() {
             context = this,
             lista = lista,
             onEditar = { cliente ->
+                SonidoManager.reproducirClick()
                 val intent = Intent(this, Activity_form_Cliente::class.java)
                 intent.putExtra("idCliente", cliente["idCliente"]!!.toInt())
                 intent.putExtra("nombre", cliente["nombre"])
@@ -81,6 +85,7 @@ class Activity_Clientes : AppCompatActivity() {
                 startActivity(intent)
             },
             onEliminar = { cliente ->
+                SonidoManager.reproducirRegresar()
                 AlertDialog.Builder(this)
                     .setTitle("Eliminar cliente")
                     .setMessage("¿Estás seguro de eliminar a ${cliente["nombre"]}?")
@@ -95,4 +100,5 @@ class Activity_Clientes : AppCompatActivity() {
         )
         listView.adapter = adapter
     }
+
 }

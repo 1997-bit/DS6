@@ -25,9 +25,13 @@ class Activity_ordenes : AppCompatActivity() {
         val btnNuevaOrden = findViewById<LinearLayout>(R.id.btnNuevaOrden)
         val etBuscar = findViewById<EditText>(R.id.etBuscar)
 
-        btnRegresar.setOnClickListener { finish() }
+        btnRegresar.setOnClickListener {
+        SonidoManager.reproducirRegresar()
+            finish()
+        }
 
         btnNuevaOrden.setOnClickListener {
+            SonidoManager.reproducirClick()
             startActivity(Intent(this, Activity_nueva_orden::class.java))
         }
 

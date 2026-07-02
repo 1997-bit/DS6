@@ -33,7 +33,10 @@ class Activity_detalle_orden : AppCompatActivity() {
         tvFecha.text = fecha
         tvTotal.text = "$${"%.2f".format(total.toDouble())}"
 
-        btnRegresar.setOnClickListener { finish() }
+        btnRegresar.setOnClickListener {
+        SonidoManager.reproducirRegresar()
+            finish()
+        }
 
         if (idOrden != -1) {
             val detalles = db.obtenerDetalleOrden(idOrden)

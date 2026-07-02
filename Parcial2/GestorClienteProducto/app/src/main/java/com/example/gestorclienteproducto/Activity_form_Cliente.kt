@@ -42,10 +42,12 @@ class Activity_form_Cliente : AppCompatActivity() {
         }
 
         btnRegresar.setOnClickListener {
+            SonidoManager.reproducirRegresar()
             finish()
         }
 
         btnGuardar.setOnClickListener {
+            SonidoManager.reproducirClick()
             val nombre = etNombre.text.toString().trim()
             val correo = etCorreo.text.toString().trim()
             val telefono = etTelefono.text.toString().trim()
@@ -54,7 +56,6 @@ class Activity_form_Cliente : AppCompatActivity() {
             android.util.Log.d("VALIDACION", "Email valido: ${validarEmail(correo)}")
             android.util.Log.d("VALIDACION", "Telefono: $telefono")
             android.util.Log.d("VALIDACION", "Telefono valido: ${validarTelefono(telefono)}")
-
 
             if (nombre.isEmpty()) {
                 Toast.makeText(this, "El nombre es obligatorio", Toast.LENGTH_SHORT).show()

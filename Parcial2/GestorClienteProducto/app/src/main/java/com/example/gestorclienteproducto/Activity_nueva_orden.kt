@@ -26,7 +26,6 @@ class Activity_nueva_orden : AppCompatActivity() {
         val btnAgregarProducto = findViewById<LinearLayout>(R.id.btnAgregarProducto)
         val spinnerCliente = findViewById<Spinner>(R.id.spinnerCliente)
         val tvFecha = findViewById<TextView>(R.id.tvFecha)
-        val tvTotal = findViewById<TextView>(R.id.tvTotal)
         val layoutFecha = findViewById<LinearLayout>(R.id.layoutFecha)
         val listProductosOrden = findViewById<ListView>(R.id.listProductosOrden)
 
@@ -62,14 +61,19 @@ class Activity_nueva_orden : AppCompatActivity() {
         adapterProductosOrden = itemProductosOrden(this, productosAgregados)
         listProductosOrden.adapter = adapterProductosOrden
 
-        btnRegresar.setOnClickListener { finish() }
+        btnRegresar.setOnClickListener {
+            SonidoManager.reproducirRegresar()
+            finish()
+        }
 
         btnAgregarProducto.setOnClickListener {
+            SonidoManager.reproducirClick()
             val intent = Intent(this, Activity_agregar_producto_orden::class.java)
             startActivityForResult(intent, 100)
         }
 
         btnGuardarOrden.setOnClickListener {
+            SonidoManager.reproducirClick()
             if (clienteIdSeleccionado == -1) {
                 Toast.makeText(this, "Selecciona un cliente", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener

@@ -27,9 +27,13 @@ class Activity_Productos : AppCompatActivity() {
         val btnAgregar = findViewById<LinearLayout>(R.id.btnAgregar)
         val etBuscar = findViewById<EditText>(R.id.etBuscar)
 
-        btnRegresar.setOnClickListener { finish() }
+        btnRegresar.setOnClickListener {
+            SonidoManager.reproducirRegresar()
+            finish()
+        }
 
         btnAgregar.setOnClickListener {
+            SonidoManager.reproducirClick()
             startActivity(Intent(this, Activity_FormProductos::class.java))
         }
 

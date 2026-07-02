@@ -31,9 +31,13 @@ class Activity_FormProductos : AppCompatActivity() {
             etDescripcion.setText(intent.getStringExtra("descripcion"))
         }
 
-        btnRegresar.setOnClickListener { finish() }
+        btnRegresar.setOnClickListener {
+            SonidoManager.reproducirRegresar()
+            finish()
+        }
 
         btnGuardar.setOnClickListener {
+            SonidoManager.reproducirClick()
             val nombre = etNombre.text.toString().trim()
             val precioStr = etPrecio.text.toString().trim()
             val descripcion = etDescripcion.text.toString().trim()

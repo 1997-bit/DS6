@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GestorClienteProducto">
         <activity
+            android:name=".SonidoManager"
+            android:exported="false" />
+        <activity
+            android:name=".Temas"
+            android:exported="false" />
+        <activity
             android:name=".itemProductosOrden"
             android:exported="false" />
         <activity
