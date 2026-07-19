@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.GestorClienteProducto">
+        <activity
+            android:name=".SonidoManager"
+            android:exported="false" />
+        <activity
+            android:name=".Temas"
+            android:exported="false" />
+        <activity
+            android:name=".itemProductosOrden"
+            android:exported="false" />
+        <activity
+            android:name=".itemDetalleOrden"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_detalle_orden"
+            android:exported="false" />
+        <activity
+            android:name=".itemOrden"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_ordenes"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_agregar_producto_orden"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_nueva_orden"
+            android:exported="false" />
+        <activity
+            android:name=".itemProducto"
+            android:exported="false" />
+        <activity
+            android:name=".ProductoAdapter"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_FormProductos"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_Productos"
+            android:exported="false" />
+        <activity
+            android:name=".item_producto"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_form_Productos"
+            android:exported="false" />
+        <activity
+            android:name=".productoAdapter"
+            android:exported="false" />
+        <activity
+            android:name=".itemCliente"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityBD"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_form_Cliente"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_Clientes"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
